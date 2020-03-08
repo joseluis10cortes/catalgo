@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Gestion Productos</title>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+	crossorigin="anonymous">
+<link rel="stylesheet" href="/css/footer.css">
+</head>
+<body>
+	<div th:insert="fragment/menu.html :: menu"></div>
+	<div class="col-6 mt-3 mb-5 text-center">
+		<a th:href="@{/admin/nuevo}" class="btn btn-success" type="buttom">Nuevo
+			Producto</a>
+	</div>
+	<div class="col-10 col-xl-8 mt-2 mx-auto">
+		<table
+			class="mx-auto table table-reponsive table-bordered table-striped">
+			<thead>
+				<tr class="text-center">
+					<th>Nombre</th>
+					<th>Categoria</th>
+					<th>Precio</th>
+					<th></th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="Producto : ${productos}" class="text-center"
+					th:object="${Producto}">
+					<td th:text="*{nombre}" class="text-lowercase col"></td>
+					<td th:if="*{categoria !=null}" th:text="*{categoria.nombre}"></td>
+					<td th:text="*{#numbers.formatDecimal(precio,0,'COMMA',2,'POINT')}"></td>
+					<td class="col"><a href="#"
+						th:href="@{/admin/editar/{id}(id=${Producto.id})}"
+						class="btn btn-success" type="buttom">EDITAR </a></td>
+					<td class="col"><a href="#"
+						th:href="@{/admin/borrar/{id}(id=${Producto.id})}"
+						class="btn btn-danger" type="buttom"
+						onclick="return confirm('¿Está seguro querer borrar este producto?')">BORRAR
+					</a></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</body>
+</html>

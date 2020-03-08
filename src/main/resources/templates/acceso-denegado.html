@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>JSP Page</title>
+</head>
+<body>
+
+	<h1>Acceso denegado</h1>
+
+	<p>
+		<b><sec:authentication property="principal.username" /></b>, Usted no
+		tiene permiso para ver este contenido.
+	</p>
+
+	<h6>
+		<a th:href="@{/}"> Inicio</a>
+	</h6>
+
+</body>
+</html>

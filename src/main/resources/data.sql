@@ -1,0 +1,17 @@
+insert into USUARIO (ID, NOMBRE, EMAIL, PASSWORD, ADMIN) values (NEXTVAL('hibernate_sequence'),'admin', 'admin@admin.com', 'admin', true);
+insert into USUARIO (ID, NOMBRE, EMAIL, PASSWORD, ADMIN) values (NEXTVAL('hibernate_sequence'),'usuario', 'usuario@usuario.com', 'usuario', false);
+
+
+insert into CATEGORIA (ID, NOMBRE) values (1, 'Deportes');
+insert into CATEGORIA (ID, NOMBRE) values (3, 'Tecnologia');
+insert into CATEGORIA (ID, NOMBRE) values (4, 'Hogar');
+insert into CATEGORIA (ID, NOMBRE) values (10, 'Otros');
+
+
+insert into PRODUCTO (ID, NOMBRE, DESCRIPCION, PRECIO, CATEGORIA_ID, IMAGEN) values (NEXTVAL('hibernate_sequence'), 'ZAPATILLAS', 'Zapatillas de baloncesto callejero y versatil. La parte superior esta hecha con inserciones en materiales sinteticos para mayor durabilidad.', '45.99',1,'https://img.grouponcdn.com/deal/3PMduHaWuKhGY9QNPMmhoDJoQS12/3P-1456x874/v1/c349x211q85.jpg');
+insert into PRODUCTO (ID, NOMBRE, DESCRIPCION, PRECIO, CATEGORIA_ID, IMAGEN) values (NEXTVAL('hibernate_sequence'), 'CAMA SPIDERMAN', 'Esta cama cuenta con un dise�o moderno y acabado en polipiel. No viene montado, requiere del montaje por parte del comprador.', '69.99',4,'https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcRhn1uzk7w-eo6WbD15OiHsTmzpc6DOAi7Hq0kOkU_haMSFyPpfhdjOgoJQ9XQWApmAOpWR_kDUJfaqFIn9pQXo84oc1m6042ObQKpdmKYpvOEWYBDDLTwP&usqp=CAc');
+insert into PRODUCTO (ID, NOMBRE, DESCRIPCION, PRECIO, CATEGORIA_ID, IMAGEN) values (NEXTVAL('hibernate_sequence'), 'NINTENDO SWITCH',  'La nueva consola de Nintendo que combina la potencia de una consola domestica con la movilidad de las tradicionales consolas portatiles.', '329.95',3, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGAD9DMweUKmQNdHvUq2_bPgffV7zoA5WnxHSDDg4BoTzPX5NY&s');
+insert into PRODUCTO (ID, NOMBRE, DESCRIPCION, PRECIO, CATEGORIA_ID, IMAGEN) values (NEXTVAL('hibernate_sequence'), 'SUDADERA DEL ARSENAL', 'Sudadera pensada que los deportistas puedan seguir con sus actividades deportivas, incluso los dias mas frios.', '29.99',1,'https://img.grouponcdn.com/deal/b3s3yyFTLXnW9S6Yjb7kTXwvfeh/b3-2048x1229/v1/c349x211q85.jpg');
+insert into PRODUCTO (ID, NOMBRE, DESCRIPCION, PRECIO, CATEGORIA_ID, IMAGEN) values (NEXTVAL('hibernate_sequence'), 'RAToN DE ORDENADOR', 'Este raton cuenta con un sensor de 6.000 dpi fabricado en Suiza. Saca el maximo provecho posible a tus partidas online con el.', '41.50 ',3,'https://img.grouponcdn.com/deal/CaxxrstTKeRenoe62j7xE5RCtt6/Ca-2048x1229/v1/c349x211q85.jpg');
+insert into PRODUCTO (ID, NOMBRE, DESCRIPCION, PRECIO, CATEGORIA_ID, IMAGEN) values (NEXTVAL('hibernate_sequence'), 'MESA EXTENSIBLE BLANCA', 'Esta mesa extensible de estilo nordico es ideal para ayudar a crear un ambiente de armonia. Tiene capacidad para un maximo de 14 personas', '109.95',4, 'https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcQHjWbejaBnWqn2yGvYry8ZgHjf_R7DmTY8R8ttK4kiOQh0RSzoTSGpgr6ggN28s_8KKYzZjlq0rkePQIlAgkJ7aicQnatYXm_-utTZGVTblfjmnRv7b6F6QA&usqp=CAc');
+insert into PRODUCTO (ID, NOMBRE, DESCRIPCION, PRECIO, CATEGORIA_ID, IMAGEN) values (NEXTVAL('hibernate_sequence'), 'CANASTA DE BALONCESTO', 'Ideal para jugar tanto para los mas peque�os como para los adultos gracias al facil y comodo ajuste de la altura.', '59.99',1, 'https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcR8E5xTgJZMwSDKrMHUtye-nnzo21wOTBDc1tgYZ9ErkH-fqv8mPfDeSXWmZepfdei0sa6ZQ118CXyTwS_YYzYxCyDsAI-eNpadRDnYJJDe&usqp=CAc');

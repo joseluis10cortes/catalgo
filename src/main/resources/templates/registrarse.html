@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title sec:authorize="!isAuthenticated()">Regístrate</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+		integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link rel="stylesheet" href="/css/formularios.css" th:href="@{/css/formularios.css}">
+	<link rel="stylesheet" href="/css/general.css" th:href="@{/css/general.css}">
+</head>
+
+<body>
+	<div class="container col-12 my-5">
+		<div>
+			<div class="col-lg-10 col-xl-5 mx-auto">
+				<div class="card card-signin no-border">
+					<form method="POST" th:object="${user}" th:action="@{/nuevoUsuario}" name="formulario">
+						<h5 class="card-title text-center">Nuevo usuario</h5>
+						<div class="form-label-group col-11 mx-auto mb-3">
+							<label for="nombre">Nombre <span>*</span></label> <span class="col text-center"
+								id="mensajeNombre"></span><input type="text" name="name" id="name" class="form-control"
+								placeholder="Escriba su nombre" maxlength="200" required th:field="*{nombre}"
+								onblur="comprobarName()">
+						</div>
+						<div class="form-label-group col-11 mx-auto mb-3">
+							<label for="correo">Email <span>*</span></label> <span class="col text-center"
+								id="mensajeEmail"></span><input type="email" name="email" id="email"
+								class="form-control email" placeholder="ejemplo@gmail.com" maxlength="80" required
+								th:field="*{email}" onblur="comprobarEmail()">
+						</div>
+						<div class="form-label-group col-11 mx-auto mb-3">
+							<label for="contrasena">Contraseña <span>*</span></label> <span class="col text-center"
+								id="mensajeContra"></span><input type="password" name="password" id="password"
+								class="form-control contra" placeholder="Puede incluir caracteres especiales" maxlength="200" required
+								th:field="*{password}">
+						</div>
+						<div class="col-3 mx-auto my-4" sec:authorize="!isAuthenticated()">
+							<input type="submit" id='validate' name="alta" value="Registrarse" />
+						</div>
+					</form>
+					<div class="text-center mb-5" sec:authorize="!isAuthenticated()">
+						<a class="h5" th:href="@{/login}">¿Ya está registrado? Inicie
+							sesión</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</body>
+
+</html>

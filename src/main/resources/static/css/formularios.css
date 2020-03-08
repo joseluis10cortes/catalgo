@@ -1,0 +1,15 @@
+body {
+	background-color:#94EFA3;
+}
+
+.g-recaptcha {
+	display: inline-block;
+}
+
+form span {
+	color: red;
+}
+
+a, a:hover {
+	text-decoration: none;
+}

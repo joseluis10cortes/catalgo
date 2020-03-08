@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Quienes somos</title>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+	crossorigin="anonymous">
+<link rel="stylesheet" href="/css/general.css"
+	th:href="@{/css/general.css}">
+</head>
+<body>
+
+	<div th:insert="fragment/menu.html :: menu"></div>
+
+	<div class="col-11 mx-auto my-5">
+		<h2 class="text-center text-uppercase mt-3">QUIÉNES SOMOS</h2>
+		<p class="mb-5 text-justify">"Nos gusta la moda, creemos en
+			nuestro concepto y nos volcamos en llevarlo a cabo día a día"</p>
+
+		<p class="text-justify">La empresa a pesar de haber salido al
+			mercado hace poco en realidad lleva detrás de sí más de un año de
+			produccón.</p>
+		<p class="mb-5 text-justify">Somos una empresa española que
+			durante 5 años hemos abierto más de 107 tiendas, con una expansión
+			vertiginosa gracias al éxito de nuestras tiendas..</p>
+		<p class="text-justify">Y este éxito se debe a tener en nuestras
+			tiendas ropa de calidad con un precio máximo de 100000€ y con una
+			rotación constante..</p>
+
+	</div>
+
+
+
+</body>
+</html>

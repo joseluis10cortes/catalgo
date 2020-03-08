@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head>
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title> Producto</title>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+	crossorigin="anonymous">
+</head>
+
+<body>
+	<div th:insert="fragment/menu.html :: menu"></div>
+	<div class="container col-12 my-5">
+		<div>
+			<div class="col-lg-10 col-xl-5 mx-auto">
+				<div class="card card-signin no-border">
+					<form method="post" action="#" th:action="@{/admin/nuevo/submit}"
+						th:object="${producto}">
+						<h1>
+							<span th:text="${producto.id} ? 'Editar' : 'Nuevo'"></span>
+							Producto
+						</h1>
+						<input type="hidden" th:field="*{id}" id="id" />
+						<div class="form-label-group col-11 mx-auto mb-3">
+							<label for="nombre">Nombre</label><input type="text" name="name"
+								id="name" class="form-control" placeholder="Escriba su nombre"
+								maxlength="200" required th:field="*{nombre}">
+						</div>
+						<div class="form-label-group col-11 mx-auto mb-3">
+							<label for="nombre">Descripción</label><input type="text"
+								name="descripcion" id="descripcion" class="form-control"
+								placeholder="Descripcion del producto" maxlength="200" required
+								th:field="*{descripcion}">
+						</div>
+						<div class="form-label-group col-11 mx-auto mb-3">
+							<label for="nombre">Precio</label><input type="number"
+								name="precio" id="precio" class="form-control"
+								placeholder="precio" min="0.01" step="0.01" value="0" required
+								th:field="*{precio}">
+						</div>
+						<div class="form-label-group col-11 mx-auto mb-3">
+							<label for="nombre">Imagen</label><input type="text"
+								name="imagen" id="imagen" class="form-control"
+								placeholder="URL imagen" maxlength="200" required
+								th:field="*{imagen}">
+						</div>
+
+						<div class="form-label-group col-11 mx-auto mb-3">
+							<label for="nombre">Categoria</label><select class="col-12 p-2"
+								th:field="*{categoria}" required>
+								<option th:each="categoria : ${categorias}"
+									th:text="${categoria.nombre}" th:value="${categoria.id}"></option>
+							</select>
+						</div>
+
+						<div class="col-3 mx-auto my-4">
+							<input type="submit" id='validate' name="alta" value="Guardar" />
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</body>
+
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head>
+<title>Página principal</title>
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!-- Bootstrap CSS -->
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+	crossorigin="anonymous">
+<link rel="stylesheet" href="/css/general.css"
+	th:href="@{/css/general.css}">
+</head>
+
+<body>
+
+
+	<div th:insert="fragment/menu.html :: menu"></div>
+	<div class="mt-5 ml-5">
+
+		<h2 class="text-uppercase text-center mt-5 mb-3">
+			Catalogo Productos</span>
+		</h2>
+
+		<div class="container-fluid">
+			<!-- Lista de categorías -->
+			<nav id="sidebar">
+				<div class="sidebar-header">
+					<h3>Categorias</h3>
+				</div>
+				<ul class="list-unstyled components">
+					<li th:each="categoria : ${categorias}"><a href="#"
+						th:href="@{/?(idCategoria=${categoria.id})}"
+						th:text="${categoria.nombre}">categoria</a></li>
+				</ul>
+			</nav>
+			<!-- Lista de productos -->
+			<div class="row col mt-3 justify-content-center mx-auto">
+				<div
+					class="col col-xl-4 col-lg-6 border row mx-auto justify-content-center"
+					th:each="producto : ${listaProductos}">
+					<div class="my-5">
+						<h3 class="col-12 text-center mb-2" th:text="${producto.nombre}"></h3>
+					</div>
+					<div class="mb-3">
+						<img class="col-12 inferior"
+							th:src="${#strings.isEmpty(producto.imagen)} ? 'http://placehold.it/350x260' : ${producto.imagen}"></img>
+					</div>
+					<div class="col-6">
+						<h6 class="text-center">Precio</h6>
+						<h4 class="text-center"
+							th:text="${#numbers.formatDecimal(producto.precio,0,'COMMA',2,'POINT')} + '€'"></h4>
+					</div>
+					<div class="col">
+						<h6 class="text-center">Categoría:</h6>
+						<p class="text-center" th:text="${producto.categoria.nombre}">
+					</div>
+					<div class="col-12 row mx-auto">
+						<div class="col-6 mt-3 mb-5 text-center">
+							<a th:href="@{/productos/{id}(id=${producto.id})}"
+								class="btn btn-success" type="buttom">Ver detalles</a>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+</body>
+</html>
